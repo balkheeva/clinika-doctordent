@@ -1,3 +1,5 @@
+// TODO: разбить файл на блоки
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -14,8 +16,16 @@ $lightblue: #e6f0ff;
 $red: #c90000;
 $darkgray: #717880;
 
+.draggable-wrapper-js {
+  position: relative;
+}
 
-
+.draggable-pseudo-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
 
 .container {
   width: 100%;
@@ -46,7 +56,6 @@ $darkgray: #717880;
   }
 
   &__description {
-
     color: $darkgray;
     &__colored {
       font-size: 18px;
@@ -81,7 +90,6 @@ $darkgray: #717880;
   text-transform: uppercase;
 }
 
-
 .row {
   display: flex;
   justify-content: space-between;
@@ -110,19 +118,32 @@ $darkgray: #717880;
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
-
   }
 }
 
 .benefits {
-  font-size: 18px;
-  line-height: 120%;
+  border-radius: 20px;
+  padding: 20px 40px;
+  background-color: $lightgray;
+  transition: border-color .25s, color .25s, background .25s;
+  height: 100%;
+  user-select: none;
 
-  li {
-    margin-bottom: 10px;
+  &:hover {
+    border-color: $gray;
+    background: $gray;
+  }
 
-    a {
-      color: black;
+  &__list {
+    font-size: 18px;
+    line-height: 120%;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: black;
+      }
     }
   }
 
@@ -135,18 +156,6 @@ $darkgray: #717880;
       width: 30px;
       margin-right: 10px;
     }
-  }
-}
-
-.three-column {
-  border-radius: 20px;
-  padding: 20px 40px;
-  background-color: $lightgray;
-  transition: border-color .25s, color .25s, background .25s;
-
-  &:hover {
-    border-color: $gray;
-    background: $gray;
   }
 }
 
@@ -190,8 +199,6 @@ $darkgray: #717880;
     }
   }
 }
-
-
 .field-input {
   position: relative;
 
@@ -232,6 +239,7 @@ $darkgray: #717880;
     left: 22px;
     bottom: 26px;
     color: $gray;
+    pointer-events: none;
   }
 
   &__mask-start {
@@ -253,17 +261,17 @@ $darkgray: #717880;
 }
 
 .carousel {
-  width: 100%;
   &__slide {
+    width: 50%;
     &__img {
       margin: 0 auto;
       overflow: hidden;
       transform: translateZ(0);
       border-radius: 20px;
-      width: 300px;
+      width: 200px;
 
       img {
-        width: 300px;
+        width: 200px;
         position: relative;
         transition: all .2s ease-in-out;
 
@@ -288,17 +296,15 @@ $darkgray: #717880;
   .carousel {
     &__slide {
       &__img {
-        width: 15vw;
+        width: 100px;
         img {
-          width: 15vw;
+          width: 100px;
         }
       }
 
     }
   }
 }
-
-
 
 
 @media (max-width: 1199px) {
@@ -315,7 +321,7 @@ $darkgray: #717880;
     margin: 10px 0;
   }
 
-  .three-column {
+  .benefits {
     margin-bottom: 10px;
     padding: 10px 20px;
   }
@@ -384,7 +390,7 @@ $darkgray: #717880;
     margin: 10px 0;
   }
 
-  .three-column {
+  .benefits {
     margin-bottom: 10px;
     padding: 10px 20px;
   }
