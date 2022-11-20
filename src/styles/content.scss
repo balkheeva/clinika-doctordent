@@ -1,0 +1,81 @@
+@import "globals";
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 0;
+
+  @media (max-width: 1199px) {
+    margin: 20px 0;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-top: 20px;
+
+    &:hover {
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+.benefits {
+  border-radius: 20px;
+  padding: 20px 40px;
+  background-color: $lightgray;
+  transition: border-color .25s, color .25s, background .25s;
+  height: 100%;
+  user-select: none;
+  @media (max-width: 1199px) {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+  }
+
+  &:hover {
+    border-color: $gray;
+    background: $gray;
+  }
+
+  &__list {
+    font-size: 18px;
+    line-height: 120%;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: black;
+      }
+    }
+  }
+
+  &__single-icon {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.team {
+  font-weight: 600;
+
+  &__title {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  &__name {
+    font-size: 18px;
+  }
+}

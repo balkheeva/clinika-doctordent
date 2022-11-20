@@ -1,0 +1,22 @@
+@import "globals";
+
+.btn {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  padding: 20px;
+  font: 500 18px/1 Commissioner, Arial, Helvetica, sans-serif;
+  transition: border-color .25s, color .25s, background .25s;
+
+  &--primary {
+    background-color: $blue;
+    border-color: $blue;
+    color: white;
+
+    &:hover {
+      border-color: #0866ff;
+      background: #0866ff;
+    }
+  }
+}

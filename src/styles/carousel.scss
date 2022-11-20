@@ -1,0 +1,70 @@
+@import "globals";
+
+
+.carousel {
+  &__slide {
+    width: 50%;
+    padding-bottom: 10px;
+    &__img {
+      margin: 0 auto;
+      overflow: hidden;
+      transform: translateZ(0);
+      border-radius: 20px;
+      width: 200px;
+
+      img {
+        width: 200px;
+        position: relative;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.07);
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      &__img {
+        width: 100px;
+        img {
+          width: 100px;
+        }
+      }
+    }
+    @media (max-width: 1199px) {
+      &__img {
+        width: 30vw;
+        img {
+          width: 30vw;
+        }
+      }
+    }
+    p {
+      text-align: center;
+    }
+  }
+}
+
+.carousel-prev-button,
+.carousel-next-button
+{
+  position: absolute;
+  top: 35%;
+  width: 20px;
+  height: 20px;
+  margin-top: -15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.carousel-prev-button {
+  left: 0;
+  background-image: url('./assets/images/right-arrow-svgrepo-com.svg');
+  transform: rotate(180deg);
+}
+
+.carousel-next-button {
+  right: 0;
+  background-image: url('./assets/images/right-arrow-svgrepo-com.svg');
+}
+

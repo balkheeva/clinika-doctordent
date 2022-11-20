@@ -1,0 +1,70 @@
+@import "globals";
+
+.form-offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: $lightblue;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__desc {
+    font-size: 18px;
+  }
+}
+
+
+
+.field-input {
+  position: relative;
+
+  &__label {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    pointer-events: none;
+    transition: transform .25s;
+    transform-origin: 0;
+  }
+
+  &__input:focus + &__label,
+  &__input:not(:placeholder-shown) + &__label {
+    transform: scale(.75) translateY(-16px);
+    color: #A9B3BF;
+    background-color: white;
+  }
+
+  &__input {
+    border-radius: 5px;
+    border: none;
+    font-family: 'Commissioner', sans-serif;
+    padding: 22px 20px 10px;
+    width: 100%;
+    margin-bottom: 16px;
+    font-size: 16px;
+    height: 55px;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__mask {
+    position: absolute;
+    left: 22px;
+    bottom: 26px;
+    color: $gray;
+    pointer-events: none;
+  }
+
+  &__mask-start {
+    visibility: hidden;
+  }
+}

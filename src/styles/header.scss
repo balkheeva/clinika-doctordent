@@ -1,0 +1,120 @@
+@import "globals";
+
+.header {
+  width: 100%;
+  color: black;
+  padding: 20px 0;
+  box-shadow: 0 10px 40px rgb(12 12 12 / 10%);
+  &__offer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__text {
+    padding: 20px 40px;
+  }
+  &__image {
+    width: 360px;
+    border-radius: 20px;
+  }
+  &__description {
+    color: $darkgray;
+    &__colored {
+      font-size: 18px;
+      color: $blue;
+      font-weight: 600;
+    }
+  }
+  &__sub-title {
+    margin: 0 0 20px;
+  }
+  &__title {
+    font-size: 2vw;
+    font-weight: 600;
+  }
+}
+.red_text {
+  color: $red;
+  font-size: 2.3vw;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: $blue;
+  border-radius: 50px;
+  color: white;
+  width: fit-content;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1200px) {
+  .header {
+    &__image {
+      width: 20vw;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .header {
+    padding: 0;
+    box-shadow: none;
+
+    &__text {
+      width: 100%;
+      padding: 20px 10px;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+
+    &__image {
+      width: 35vw;
+      border-radius: 10px;
+    }
+
+    &__title {
+      font-size: 4vw;
+    }
+  }
+
+  .red_text {
+    font-size: 4vw;
+  }
+  .badge {
+    margin-bottom: 5px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0;
+    box-shadow: none;
+
+    &__offer {
+      flex-direction: column;
+    }
+
+    &__text {
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    &__image {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+
+    }
+  }
+  .red_text {
+    font-size: 2rem;
+  }
+}
