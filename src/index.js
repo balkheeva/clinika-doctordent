@@ -49,11 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     btn.addEventListener("click", () => {
-        if (!inputEl.value.trim() || !isNameValid(inputEl)) {
+        let errorMessage
+
+        if (!inputEl.value.trim()) errorMessage = 'Это поле должно быть заполнено'
+        else if (!isNameValid(inputEl.value)) errorMessage = 'Укажите корректное имя'
+
+        if (errorMessage) {
             inputEl.classList.add('invalid')
             inputEl.classList.remove('valid')
-            findParent(inputEl).querySelector('.error').textContent = "Это поле должно быть заполнено";
-
+            findParent(inputEl).querySelector('.error').textContent = errorMessage;
         } else {
             inputEl.classList.remove('invalid')
             inputEl.classList.add('valid')
@@ -78,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function isPhoneValid(element) {
        return /(\+7|8)[\s(]*\d{3}[)\s]*\d{3}[\s-]?\d{2}[\s-]?\d{2}/.test(element.value)
     }
-    function isNameValid(element) {
-        return /[^-А-ЯA-Z\x27а-яa-z]/.test(element.value)
+    function isNameValid(value) {
+        return /^([А-ЯЁ-]*)?((\s[А-ЯЁ-]*)?\s[А-ЯЁ]*)?$/i.test(value)
     }
 
 })
