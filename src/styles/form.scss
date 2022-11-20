@@ -20,20 +20,22 @@
   }
 }
 
-
-
 .field-input {
   position: relative;
+  margin-block-end: 10px;
 
   &__label {
     position: absolute;
-    top: 16px;
+    top: 17px;
     left: 20px;
     pointer-events: none;
     transition: transform .25s;
     transform-origin: 0;
   }
 
+  &__input::placeholder {
+    color: transparent;
+  }
   &__input:focus + &__label,
   &__input:not(:placeholder-shown) + &__label {
     transform: scale(.75) translateY(-16px);
@@ -41,13 +43,16 @@
     background-color: white;
   }
 
+  &__wrapper {
+    position: relative;
+  }
+
   &__input {
     border-radius: 5px;
-    border: none;
+    border: 1px solid transparent;
     font-family: 'Commissioner', sans-serif;
     padding: 22px 20px 10px;
     width: 100%;
-    margin-bottom: 16px;
     font-size: 16px;
     height: 55px;
 
@@ -59,12 +64,27 @@
   &__mask {
     position: absolute;
     left: 22px;
-    bottom: 26px;
-    color: $gray;
+    top: 24px;
+    color: gray;
     pointer-events: none;
+  }
+
+  &__input:not(:focus) ~ &__mask {
+    display: none;
   }
 
   &__mask-start {
     visibility: hidden;
+  }
+
+  .valid {
+    border: 1px solid #4AD45D;
+  }
+  .invalid {
+    border: 1px solid #D90800;
+  }
+  .error {
+    margin: 0;
+    color: #D90800;
   }
 }

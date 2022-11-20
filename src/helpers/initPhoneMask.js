@@ -10,19 +10,33 @@ export default function initPhoneMask(el) {
     new PhoneMask(phoneEl);
 
     phoneEl.addEventListener('focus', () => {
-        if (!phoneEl.value) phoneEl.value = '+7 ('
+        if (!phoneEl.value) {
+            phoneEl.value = '+7 ('
+            phoneEl.dispatchEvent(new Event('input'))
+        }
+        requestAnimationFrame(() => {
+            phoneMaskEnd.innerText = PHONE_MASK.substring(phoneEl.value.length, PHONE_MASK.length);
+            phoneMaskStart.innerText = phoneEl.value;
+        });
         requestAnimationFrame(() => {
             phoneEl.setSelectionRange(phoneEl.value.length, phoneEl.value.length);
         });
     })
 
     phoneEl.addEventListener('blur', () => {
-        if (phoneEl.value === '+7 (') phoneEl.value = '';
+        if (phoneEl.value.trim() === '+7 (') {
+            phoneEl.value = '';
+            phoneEl.dispatchEvent(new Event('input'))
+        }
     });
 
-    phoneEl.addEventListener('input', () => {
-        phoneMaskEnd.innerText = PHONE_MASK.substring(phoneEl.value.length, PHONE_MASK.length);
-        phoneMaskStart.innerText = phoneEl.value;
+    phoneEl.addEventListener('keydown', () => {
+        requestAnimationFrame(() => {
+            phoneMaskEnd.innerText = PHONE_MASK.substring(phoneEl.value.length, PHONE_MASK.length);
+            phoneMaskStart.innerText = phoneEl.value;
+        });
         // TODO: add prevention to remove the first symbols of the phone mask
     });
+
+    phoneEl.addEventListener('change', console.log);
 }
