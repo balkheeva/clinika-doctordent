@@ -37,6 +37,4 @@ export default function initPhoneMask(el) {
         });
         // TODO: add prevention to remove the first symbols of the phone mask
     });
-
-    phoneEl.addEventListener('change', console.log);
 }
